@@ -17,7 +17,7 @@ def sendMail(sub):
     global to
     msg = MIMEText(sub)
     msg['Subject'] = sub
-    msg['To'] = "makingfunk0@gmail.com"
+    msg['To'] = id
     msg['From'] = to
     s = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     try:
