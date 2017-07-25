@@ -3,10 +3,11 @@ from bs4 import BeautifulSoup
 import time
 import smtplib
 from email.mime.text import MIMEText
+import getpass
 
 days = str(input("갱신 될 일자를 입력하세요(숫자만)  : "))
-id = str(input("구글 ID를 입력하세요. : "))
-pw = str(input("구글 비밀번호를 입력하세요."))
+id = str(input("구글 ID를 입력하세요. : ")) + "@gmail.com"
+pw = getpass.getpass("구글 비밀번호를 입력하세요.")
 to = str(input("받으실 메일 주소를 입력하세요. : "))
 msg = MIMEText("example")
 
