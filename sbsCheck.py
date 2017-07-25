@@ -41,7 +41,7 @@ def check(days):
     url = "http://program.sbs.co.kr/builder/verticalBoard.do?pgm_id=00000338038&pgm_build_id=25&pgm_mnu_id=22901"
     html = urlopen(url)
     bsObj = BeautifulSoup(html, "html.parser")
-    td = bsObj.find_all("td")
+    td = bsObj.find_all("td", {"class":"sbsbrd_tit"})
     for i in td:
         if i.text.find(days + '일') != -1:
             fin = days + "일이 갱신되었습니다."
@@ -51,7 +51,6 @@ def check(days):
         print(fin + to + "으로 메일을 발송합니다.")
         sendMail(fin)
     except NameError as e:
-        print(e)
         print("게시판을 재검색합니다.")
         time.sleep(5)
         check(days)
