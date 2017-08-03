@@ -60,7 +60,7 @@ def check(days):
     bsObj = BeautifulSoup(html, "html.parser")
     td = bsObj.find_all("td", {"class":"sbsbrd_tit"})
     for i in td:
-        if i.text.find(days + '일') != -1:
+        if (' ' + days + '일') in i.text:
             fin = days + "일이 갱신되었습니다."
             aUrl = i.find('a').attrs['onclick'].split('\'')[1]
             getBody(aUrl)
