@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from broadcastBot.views import product as pro
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^product/', pro),
 ]
