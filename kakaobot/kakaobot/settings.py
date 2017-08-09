@@ -25,7 +25,9 @@ SECRET_KEY = 'blb#!_ddic3*k5^bm@n!(qq%$wn2lb*%erk&)_5wrb-^5qpk-@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.amazonaws.com','czarcie.com',
+    ]
 
 
 # Application definition
