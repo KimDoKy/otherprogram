@@ -26,7 +26,7 @@ SECRET_KEY = 'blb#!_ddic3*k5^bm@n!(qq%$wn2lb*%erk&)_5wrb-^5qpk-@'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '.amazonaws.com','www.czarcie.com',
+    '.amazonaws.com','www.czarcie.com','127.0.0.1',
     ]
 
 
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'UTC'
 
