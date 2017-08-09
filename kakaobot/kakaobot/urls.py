@@ -14,12 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
 from broadcastBot.views import product as pro
 from broadcastBot.views import answer as msg
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^keyboard/', pro),
     url(r'^message', msg),
 ]
