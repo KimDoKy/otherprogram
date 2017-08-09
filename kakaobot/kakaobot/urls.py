@@ -19,5 +19,5 @@ from broadcastBot.views import product as pro
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^product/', pro),
+    url(r'^keyboard/', pro),
 ]
