@@ -12,14 +12,13 @@ def product(request):
 @csrf_exempt
 def answer(request):
     json_str = ((request.body).decode('utf-8'))
-    print(json_str)
     received_json_data = json.loads(json_str)
     product_name = received_json_data['content']
     today_date = datetime.date.today().strftime("%m월 %d일")
 
     return JsonResponse({
         'message' : {
-            'text' : today_date + '의 ' + product_name + ' 상품입니다.'
+            'text' : '문의 주신 상품은 ' + product_name + '입니다. 지금 주문하시면 배송은' + today_date + '기준 4일(영업일기준)후 도착 예정입니다.'
         },
         'keyboard' : {
             'type' : 'buttons',
