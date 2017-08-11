@@ -21,9 +21,9 @@ def answer(request):
         'message' : {
             'text' : '문의 주신 상품은 ' + product_name + '입니다. 지금 주문하시면 배송은' + delivery_date + ' 도착 예정입니다.',
             'photo' : {
-                "url" : "http://mieninc.godohosting.com/chun/peach/p4.jpg",
-                'width' : '100%',
-                'height' : '100%'
+                "url" : "https://s.pstatic.net/shopping.phinf/20170811_6/b2b4135d-2eb1-4435-8823-063b13b00eb9.jpg",
+                'width' : 188,
+                'height' : 234
             }
         },
         'keyboard' : {
