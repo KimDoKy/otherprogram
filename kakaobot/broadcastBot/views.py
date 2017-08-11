@@ -25,7 +25,7 @@ def crawl(request):
 def product(request):
     return JsonResponse({
         'type': 'buttons',
-        'buttons' : ['사슴', '잉어', '해마']
+        'buttons' : ['사슴', '잉어', '해마', '복숭아']
         })
 
 @csrf_exempt
@@ -51,6 +51,6 @@ def answer(request):
         },
         'keyboard' : {
             'type' : 'buttons',
-            'buttons' : ['잉어', '사슴', '해마']
+            'buttons' : ['잉어', '사슴', '해마', '복숭아']
         }
     })
