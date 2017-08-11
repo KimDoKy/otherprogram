@@ -22,8 +22,8 @@ def answer(request):
             'text' : '문의 주신 상품은 ' + product_name + '입니다. 지금 주문하시면 배송은' + delivery_date + ' 도착 예정입니다.',
             'photo' : {
                 "url" : "http://mieninc.godohosting.com/chun/peach/p4.jpg",
-                'width' : 640,
-                'height' : 480
+                'width' : 100%,
+                'height' : 100%
             }
         },
         'keyboard' : {
