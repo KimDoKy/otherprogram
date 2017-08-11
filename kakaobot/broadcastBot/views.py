@@ -16,9 +16,9 @@ def crawl(request):
     req = Request(img_url, headers=hdr)
     html = urlopen(req)
     bsObj = BeautifulSoup(html, 'html.parser')
-    image_url = bsObj.find_all('img')[0].attrs['src']
-    width = bsObj.find_all('img')[0].attrs['width']
-    height = bsObj.find_all('img')[0].attrs['heigth']
+    image_url = bsObj.find_all('img')[2].attrs['src']
+    width = bsObj.find_all('img')[2].attrs['width']
+    height = bsObj.find_all('img')[2].attrs['height']
     return image_url, width, height
 
 
