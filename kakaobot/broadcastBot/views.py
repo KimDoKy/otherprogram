@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from bs4 import BeautifulSoup
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 import json, datetime
 
 
@@ -12,7 +12,9 @@ def getImageUrl(request):
 
 def crawl(request):
     img_url = getImageUrl(request)
-    html = urlopen(img_url)
+    hdr = {'referer': 'http://m.naver.com', 'User-Agent': 'Mozilla/5.0'}
+    req = Request(img_url, headers=hdr)
+    html = urlopen(req)
     bsObj = BeautifulSoup(html, 'html.parser')
     image_url = bsObj.find_all('img')[0].attrs['src']
     width = bsObj.find_all('img')[0].attrs['width']
