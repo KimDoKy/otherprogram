@@ -5,12 +5,14 @@ import smtplib
 from email.mime.text import MIMEText
 import getpass
 import re
+import random
 
 # 필요한 기본 정보들을 입력 받습니다
 days = str(input("갱신 될 일자를 입력하세요(숫자만)  : "))
 id = str(input("구글 ID를 입력하세요. : ")) + "@gmail.com"
 pw = getpass.getpass("구글 비밀번호를 입력하세요.")
 to = str(input("받으실 메일 주소를 입력하세요. : "))
+num = 0
 
 # 이메일 검증입니다
 while not re.match("^([A-za-z\.0-9_-]+)@([A-Za-z-_]+)\.([a-z\.]{2,6})", to):
@@ -70,8 +72,11 @@ def check(days):
         print(fin + to + "으로 메일을 발송합니다.")
         sendMail(fin, body_content)
     except NameError as e:
-        print("게시판을 재검색합니다.")
-        time.sleep(5)
+        global num
+        num += 1
+        t = random.randint(10,18)
+        print(str(t) + "초후 게시판을 재검색합니다." + str(num) + "번째 검색입니다.")
+        time.sleep(t)
         check(days)
 
 check(days)
