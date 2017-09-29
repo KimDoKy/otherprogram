@@ -6,9 +6,9 @@ import openpyxl
 wd = openpyxl.load_workbook('zip.xlsx')
 ws = wd.active
  
-def bs(adress):
+def bs(address):
     url = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="
-    q = parse.quote(adress)
+    q = parse.quote(address)
     html = urlopen(url + q)
     bsObj = BeautifulSoup(html, "html.parser")
     span = bsObj.find("span", "zipcode")
@@ -26,8 +26,8 @@ def zipcode():
         row_index = r[0].row
         name = r[1].value
         phone = r[2].value
-        adress = r[3].value
-        zip_c = bs(adress)
+        address = r[3].value
+        zip_c = bs(address)
         ws.cell(row=row_index, column=1).value = row_index
         ws.cell(row=row_index, column=2).value = name
         ws.cell(row=row_index, column=3).value = phone
