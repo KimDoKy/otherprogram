@@ -28,18 +28,17 @@ def relate_search():
             ws.cell(row=1, column=2).value = '키워드'
             ws.cell(row=1, column=3).value = '순위'
         else:
-            for r in ws.rows:
-                row_index = r[0].row
-                search_key = r[1].value
-                relate_key = r[2].value
-                ranking = bs(search_key,relate_key)
-                if ranking == None:
-                    ranking = "x"
-                ws.cell(row=row_index, column=1).value = row_index
-                ws.cell(row=row_index, column=2).value = search_key
-                ws.cell(row=row_index, column=3).value = relate_key
-                ws.cell(row=row_index, column=4).value = ranking
-                wd.save("result_select_ranking.xlsx")
+            row_index = r[0].row
+            search_key = r[1].value
+            relate_key = r[2].value
+            ranking = bs(search_key,relate_key)
+            if ranking == None:
+                ranking = "x"
+            ws.cell(row=row_index, column=1).value = row_index
+            ws.cell(row=row_index, column=2).value = search_key
+            ws.cell(row=row_index, column=3).value = relate_key
+            ws.cell(row=row_index, column=4).value = ranking
+            wd.save("result_select_rank_list.xlsx")
     wd.close()
  
 relate_search()

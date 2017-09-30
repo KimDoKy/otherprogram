@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from urllib import parse
 import openpyxl
  
-wd = openpyxl.load_workbook('rank_list.xlsx')
+wd = openpyxl.load_workbook('search_rank_list.xlsx')
 ws = wd.active
  
 def bs(s_key):
@@ -41,9 +41,9 @@ def relate_search():
                     max_len = len(ranking)
                 for i in range(len(ranking)):
                     ws.cell(row=row_index, column=i+3).value = ranking[i]
-            for i in range(max_len):
-                ws.cell(row=1, column=i + 3).value = str(i+1) + '순위'
-            wd.save("result_ranking_list.xlsx")
+    for i in range(max_len):
+        ws.cell(row=1, column=i + 3).value = str(i+1) + '순위'
+    wd.save("result_search_rank_list.xlsx")
     wd.close()
  
 relate_search()

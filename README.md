@@ -54,4 +54,7 @@ sbsCheck의 mbc 버젼.
 
 특정키워드의 연관,추천 검색어의 순위를 엑셀에 저장합니다.
 
-> 엑셀파일 다루는게 많이 미숙하네요.. 덕분에 for문이 중첩되어버렸네요.. 업데이 예정
+샘플 엑셀 데이터  
+
+search_rank_list.xlsx -> result_search_rank_list.xlsx  
+select_rank_list.xlsx -> result_select_rank_list.xlsx
