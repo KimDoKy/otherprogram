@@ -19,13 +19,30 @@ Dim Data_Exist
 Dim Low_Team
 Dim MACADDR1, MACADDR2
 
+sql = "SELECT Admin_Part, Admin_Team "
+sql = sql & "FROM ADMIN WHERE Del_Gubun='N' AND Admin_Code="& gbl_Admin_Code
+Set RS = DbCon.Execute(sql)
+If RS.EOF Then
+	Set RS = Nothing
+	DbCon.Close
+	
+	F_JS_Alert "Error!!!\n등록된 정보가 없습니다.","history.back();"
+	Response.End
+Else
+	Admin_Part     = RS("Admin_Part")
+	Admin_Team     = RS("Admin_Team")
+	Set RS = Nothing
+End If
+
+
+
 Arr_UploadFolder(0) = gbl_FileAbsPath & "\admin\upload\system"
 Arr_SaveFileName(0) = "" '파일명 초기화
 
 Call F_UploadComponentDefine '업로드 컴포넌트 설치 여부 확인 및 컴포넌트 정의
 
-Admin_Part     = UploadForm("Admin_Part")
-Admin_Team     = UploadForm("Admin_Team")
+Admin_Part     = Admin_Part
+Admin_Team     = Admin_Team
 Admin_Position = UploadForm("Admin_Position")
 Admin_ID       = Trim(UploadForm("Admin_ID"))
 Admin_PW       = Trim(UploadForm("Admin_PW"))
@@ -99,7 +116,7 @@ With objCmd
 	.Parameters.Append .CreateParameter("@Admin_Tel",      adVarChar, adParamInput,  20, Admin_Tel)
 	.Parameters.Append .CreateParameter("@Admin_Hp",       adVarChar, adParamInput,  20, Admin_Hp)
 	.Parameters.Append .CreateParameter("@Admin_Email",    adVarChar, adParamInput,  50, Admin_Email)
-    .Parameters.Append .CreateParameter("@Admin_MSN",      adVarChar, adParamInput,  50, Admin_MSN)
+    .Parameters.Append .CreateParameter("@Admin_MSN",      adVarChar, adParamInput,  50, "")
     .Parameters.Append .CreateParameter("@Admin_Photo",    adVarChar, adParamInput, 100, Arr_SaveFileName(0))
     .Parameters.Append .CreateParameter("@Maechul_View",      adChar, adParamInput,   1, Maechul_View)
     .Parameters.Append .CreateParameter("@Admin_Stat",        adChar, adParamInput,   2, Admin_Stat)
