@@ -19,7 +19,8 @@ Dim Data_Exist
 Dim Low_Team
 Dim MACADDR1, MACADDR2
 
-sql = "SELECT Admin_Part, Admin_Team "
+'부서, 팀 임의 변경을 막기 위해 입력한 정보가 아닌 DB에 있는 정보로 대체
+sql = "SELECT Admin_Part, Admin_Team, Admin_Position  "
 sql = sql & "FROM ADMIN WHERE Del_Gubun='N' AND Admin_Code="& gbl_Admin_Code
 Set RS = DbCon.Execute(sql)
 If RS.EOF Then
@@ -31,6 +32,7 @@ If RS.EOF Then
 Else
 	Admin_Part     = RS("Admin_Part")
 	Admin_Team     = RS("Admin_Team")
+	Admin_Position = RS("Admin_Position")
 	Set RS = Nothing
 End If
 
@@ -43,7 +45,7 @@ Call F_UploadComponentDefine '업로드 컴포넌트 설치 여부 확인 및 컴포넌트 정의
 
 Admin_Part     = Admin_Part
 Admin_Team     = Admin_Team
-Admin_Position = UploadForm("Admin_Position")
+Admin_Position = Admin_Position
 Admin_ID       = Trim(UploadForm("Admin_ID"))
 Admin_PW       = Trim(UploadForm("Admin_PW"))
 Admin_Name     = Trim(UploadForm("Admin_Name"))
