@@ -58,3 +58,13 @@ sbsCheck의 mbc 버젼.
 
 search_rank_list.xlsx -> result_search_rank_list.xlsx  
 select_rank_list.xlsx -> result_select_rank_list.xlsx
+
+--- 
+
+## call_profile
+
+회사의 녹취 시스템에서 얻은 전화통화 통계 엑셀파일에서  
+담당자별로 filtering 후에 전 통화와 다음 통화 사이의 시간이  
+20분 이상 지체되는지 확인한 후 결과를 엑셀 파일로 출력시킵니다.
+
+---

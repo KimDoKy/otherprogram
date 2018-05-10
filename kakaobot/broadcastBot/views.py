@@ -3,25 +3,31 @@ from django.views.decorators.csrf import csrf_exempt
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 import json, datetime, requests
+from urllib.parse import quote
+import random
 
-
+content_list = []
 
 def getImageUrl(request):
     req = str(request)
-    img_url = "https://www.google.co.kr/search?as_st=y&tbm=isch&hl=ko&as_q=" + req + "&safe=images&tbs=isz:lt,islt:vga"
+    img_url = "https://search.naver.com/search.naver?where=image&sm=tab_jum&ie=utf8&query=" + quote(req)
     return img_url
 
 def crawl(request):
+    global content_list
     img_url = getImageUrl(request)
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)     Chrome/37.0.2049.0 Safari/537.36'
-    }
-    req = requests.get(img_url, headers=headers)
-    html = urlopen(req)
+    html = urlopen(img_url)
     bsObj = BeautifulSoup(html, 'html.parser')
-    image_url = bsObj.find_all('img')[2].attrs['src']
-    width = bsObj.find_all('img')[2].attrs['width']
-    height = bsObj.find_all('img')[2].attrs['height']
+    img_list = bsObj.find_all('div', {'class':'_item'})
+    for i in img_list:
+        i.find_all('img')
+        content_list.append(i.find('data-source'))
+
+    content_list = img_list.find_all('data-source')
+    num = random.randrange(5,10)
+    image_url = contents[num].attrs['src']
+    width = contents[num].attrs['data-width']
+    height = contents[num].attrs['data-height']
     return image_url, width, height
 
 
