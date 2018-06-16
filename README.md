@@ -68,3 +68,5 @@ select_rank_list.xlsx -> result_select_rank_list.xlsx
 20분 이상 지체되는지 확인한 후 결과를 엑셀 파일로 출력시킵니다.
 
 ---
+
+## shopping admin (예정)
