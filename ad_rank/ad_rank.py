@@ -5,8 +5,17 @@ from datetime import datetime
 from bs4 import BeautifulSoup as bs
 from openpyxl import Workbook
 
-client_id = 'xzbHzlxAEYYDo_DYeW6Y'
-client_secret = 'l8ODdVqP_q'
+import os
+import json
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CONF_FILE = json.loads(open(os.path.join(BASE_DIR, 'secret.json')).read())
+
+
+client_id = CONF_FILE['naver']['id']
+client_secret = CONF_FILE['naver']['secret']
+print(client_id)
+
 key_list = []
 with open('key_list.txt', 'rt') as file:
     for keyword in file:
