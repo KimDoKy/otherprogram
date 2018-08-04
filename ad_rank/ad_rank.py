@@ -14,12 +14,11 @@ CONF_FILE = json.loads(open(os.path.join(BASE_DIR, 'secret.json')).read())
 
 client_id = CONF_FILE['naver']['id']
 client_secret = CONF_FILE['naver']['secret']
-print(client_id)
 
 key_list = []
-with open('key_list.txt', 'rt') as file:
+with open('key_list.txt', 'rb') as file:
     for keyword in file:
-        key_list.append(keyword[:-1])
+        key_list.append(keyword.decode('cp949'))
 
 url = 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query='
 
