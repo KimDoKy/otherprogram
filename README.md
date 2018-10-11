@@ -70,3 +70,8 @@ select_rank_list.xlsx -> result_select_rank_list.xlsx
 ---
 
 ## shopping admin (예정)
+
+---
+
+list.py : 조회수 늘리기....
+check_list.py : 게시판 업데이트 체크. 업데이트 될때까지 10분 단위로 검사. 조건에 합당하면 알림창을 띄우고 종료            
