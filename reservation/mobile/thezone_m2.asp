@@ -59,20 +59,20 @@
 		Case "3"
 			RoomName = "(301-30평) Sweet Zone"
 
-			Cu_Check = "1"
+			Cu_Check = "3"
 
-			NumFor = 2
-			AddFor = 0
+			NumFor = 8
+			AddFor = 4
 
 			Cu_ImageTitle = "인원<br>(기준8명/최대12명)"
 
 		Case "4"
 			RoomName = "(302-7평) Purple Zone"
 
-			Cu_Check = "3"
+			Cu_Check = "1"
 
-			NumFor = 8
-			AddFor = 4
+			NumFor = 0
+			AddFor = 2
 
 			Cu_ImageTitle = "인원<br>(기준2명/최대2명)"
 
@@ -119,8 +119,6 @@
 
 				Case "1"
 
-					
-
 					Price01_01 = "7만원(주중)"
 					Price01_02 = "7만원(주말)"
 
@@ -128,7 +126,6 @@
 					Price03_02 = "14만원(주말)"
 
 				Case "2"
-
 					
 					Price01_01 = "15만원(주중)"
 					Price01_02 = "15만원(주말)"
@@ -138,7 +135,6 @@
 
 
 				Case "3"
-
 					
 					Price01_01 = "20만원(주중)"
 					Price01_02 = "20만원(주말)"
@@ -164,7 +160,7 @@
 
 			
 		
-			'7/1 ~ 8/81 여름 성수기'
+			'7/1 ~ 8/31 여름 성수기'
 			If (Year(Now()) & "-07-01" <= CheckDate) And (Year(Now()) & "-08-31" >= CheckDate) Then
 
 				PriceCheck = "Y"
@@ -234,31 +230,64 @@
 			'겨울 성수기 (12월)
 			ElseIf (Year(Now()) & "-12-01" <= CheckDate) And (Year(Now()) & "-12-31" >= CheckDate) Then
 					
-				bgImage03_1 = "#c4d597" '요금 적용 영역 표시 색칠하기
-				Price03_01 = Price03_01 & ""
+				If bgColor = "02" Then
+				    bgImage03_1 = "#c4d597" '요금 적용 영역 표시 색칠하기
+				    Price03_01 = Price03_01 & ""
+				Else
+					bgImage03_2 = "#c4d597" 
+					Price03_02 = Price03_02 & ""
+                End If
 
 				Select Case Cu_Check '해당 방 가격 자동 입력
 					Case "1"
+					    If bgColor = "02" Then
 							SelectPrice = 100000
+						Else
+						    SelectPrice = 140000
+						End If
 					Case "2"
+					    If bgColor = "02" Then
 							SelectPrice = 200000
+						Else
+						    SelectPrice = 300000
+						End If
 					Case "3"
+					    If bgColor = "02" Then
 							SelectPrice = 300000
-
+						Else
+						    SelectPrice = 400000
+						End If
 				End Select
 			
 			'겨울 성수기 (1,2월)
 			ElseIf (Year(Now())+1 & "-01-01" <= CheckDate) And (Year(Now())+1 & "-02-28" >= CheckDate) Then
-				bgImage03_1 = "#c4d597" '요금 적용 영역 표시 색칠하기
-				Price03_01 = Price03_01 & ""
+			    If bgColor = "02" Then
+				    bgImage03_1 = "#c4d597" '요금 적용 영역 표시 색칠하기
+				    Price03_01 = Price03_01 & ""
+				Else
+					bgImage03_2 = "#c4d597" 
+					Price03_02 = Price03_02 & ""
+                End If
 
 				Select Case Cu_Check '해당 방 가격 자동 입력
 					Case "1"
+					    If bgColor = "02" Then
 							SelectPrice = 100000
+						Else
+						    SelectPrice = 140000
+						End If
 					Case "2"
+					    If bgColor = "02" Then
 							SelectPrice = 200000
+						Else
+						    SelectPrice = 300000
+						End If
 					Case "3"
+					    If bgColor = "02" Then
 							SelectPrice = 300000
+						Else
+						    SelectPrice = 400000
+						End If
 				End Select
 
 			'비성수기'
