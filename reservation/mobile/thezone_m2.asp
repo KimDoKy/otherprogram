@@ -57,24 +57,24 @@
 			Cu_ImageTitle = "인원<br>(기준2명/최대2명)"
 
 		Case "3"
-			RoomName = "(203-7평) Purple Zone"
+			RoomName = "(301-30평) Sweet Zone"
 
 			Cu_Check = "1"
 
 			NumFor = 2
 			AddFor = 0
 
-			Cu_ImageTitle = "인원<br>(기준2명/최대2명)"
+			Cu_ImageTitle = "인원<br>(기준8명/최대12명)"
 
 		Case "4"
-			RoomName = "(301-30평) Sweet Zone"
+			RoomName = "(302-7평) Purple Zone"
 
 			Cu_Check = "3"
 
 			NumFor = 8
 			AddFor = 4
 
-			Cu_ImageTitle = "인원<br>(기준8명/최대12명)"
+			Cu_ImageTitle = "인원<br>(기준2명/최대2명)"
 
 	End Select
 
@@ -171,178 +171,126 @@
 
 
 				If bgColor = "02" Then
-				
 					bgImage02_1 = "#c4d597" 
-
 					Price02_01 = Price02_01 & ""
-
 				Else
-
 					bgImage02_2 = "#c4d597" 
-
 					Price02_02 = Price02_02 & ""
-
 				End If
-
-
-				
 				Select Case Cu_Check
 					Case "1"
-
 						If bgColor = "02" Then
-
 							SelectPrice = 70000
-
 						Else
-
 							SelectPrice = 70000
-
 						End If
-						
 					Case "2"
-
 						If bgColor = "02" Then
-
 							SelectPrice = 150000
-
 						Else
-
 							SelectPrice = 150000
-
 						End If
-
-						
 					Case "3"
-
 						If bgColor = "02" Then
-
 							SelectPrice = 300000
-
 						Else
-
 							SelectPrice = 400000
-
 						End If
-
 				End Select
-				
-			'겨울 성수기'
-			ElseIf ((Year(Now()) & "-12-01" <= CheckDate) And (Year(Now()) & "-12-31" >= CheckDate)) Or ((Year(Now()) & "-01-01" <= CheckDate) And (Year(Now()) & "-02-29" >= CheckDate)) Then
+
+			'2018년 11월 요청건'
+			'겨울 성수기중 금요일도 주중가격으로 인하'
+            ElseIf ("2018-12-07" = CheckDate) Or ("2018-12-14" = CheckDate) Or ("2018-12-21" = CheckDate) Or ("2018-12-28" = CheckDate) Or ("2019-01-04" = CheckDate) Or ("2019-01-11" = CheckDate) Or ("2019-01-18" = CheckDate) Or ("2019-01-25" = CheckDate) Or ("2019-02-01" = CheckDate) Or ("2019-02-08" = CheckDate) Or ("2019-02-16" = CheckDate) Or ("2019-02-22" = CheckDate) Then
 
 				If bgColor = "02" Then
-				
 					bgImage03_1 = "#c4d597" 
-
 					Price03_01 = Price03_01 & ""
-
 				Else
-
-					bgImage03_2 = "#c4d597" 
-
-					Price03_02 = Price03_02 & ""
-
+					bgImage03_1 = "#c4d597" 
+					Price03_01 = Price03_01 & ""
 				End If
-
 
 				Select Case Cu_Check
 					Case "1"
-
 						If bgColor = "02" Then
-
 							SelectPrice = 100000
-
 						Else
-
-							SelectPrice = 140000
-
+							SelectPrice = 100000
 						End If
-						
 					Case "2"
-
 						If bgColor = "02" Then
-
 							SelectPrice = 200000
-
 						Else
-
-							SelectPrice = 300000
-
+							SelectPrice = 200000
 						End If
-
-						
 					Case "3"
-
 						If bgColor = "02" Then
+							SelectPrice = 300000
+						Else
+							SelectPrice = 300000
+						End If
+				End Select
 
+			'겨울 성수기 (12월)
+			ElseIf (Year(Now()) & "-12-01" <= CheckDate) And (Year(Now()) & "-12-31" >= CheckDate) Then
+					
+				bgImage03_1 = "#c4d597" '요금 적용 영역 표시 색칠하기
+				Price03_01 = Price03_01 & ""
+
+				Select Case Cu_Check '해당 방 가격 자동 입력
+					Case "1"
+							SelectPrice = 100000
+					Case "2"
+							SelectPrice = 200000
+					Case "3"
 							SelectPrice = 300000
 
-						Else
+				End Select
+			
+			'겨울 성수기 (1,2월)
+			ElseIf (Year(Now())+1 & "-01-01" <= CheckDate) And (Year(Now())+1 & "-02-28" >= CheckDate) Then
+				bgImage03_1 = "#c4d597" '요금 적용 영역 표시 색칠하기
+				Price03_01 = Price03_01 & ""
 
-							SelectPrice = 400000
-
-						End If
-
+				Select Case Cu_Check '해당 방 가격 자동 입력
+					Case "1"
+							SelectPrice = 100000
+					Case "2"
+							SelectPrice = 200000
+					Case "3"
+							SelectPrice = 300000
 				End Select
 
 			'비성수기'
 			Else
-
 				If bgColor = "02" Then
-				
 					bgImage01_1 = "#c4d597" 
-
 					Price02_01 = Price02_01 & ""
-
 				Else
-
 					bgImage01_2 = "#c4d597" 
-
 					Price02_02 = Price02_02 & ""
-
 				End If
-
-
 
 				Select Case Cu_Check
 					Case "1"
-
 						If bgColor = "02" Then
-
 							SelectPrice = 70000
-
 						Else
-
 							SelectPrice = 70000
-
 						End If
-						
 					Case "2"
-
 						If bgColor = "02" Then
-
 							SelectPrice = 150000
-
 						Else
-
 							SelectPrice = 150000
-
 						End If
-
-						
 					Case "3"
-
 						If bgColor = "02" Then
-
 							SelectPrice = 200000
-
 						Else
-
 							SelectPrice = 200000
-
 						End If
-
 				End Select
-
 
 			End If
 
