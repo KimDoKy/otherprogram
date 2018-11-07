@@ -69,8 +69,8 @@
 
 			Cu_Check = "1"
 
-			NumFor = 0
-			AddFor = 2
+			NumFor = 2
+			AddFor = 0
 
 			Cu_ImageTitle = "인원<br>(기준2명/최대2명)"
 
