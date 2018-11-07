@@ -282,9 +282,9 @@
 										Case 2
 											RoomName = "(202) Yellow"
 										Case 3
-											RoomName = "(203) Purple"
-										Case 4
 											RoomName = "(301) Sweet"
+										Case 4
+											RoomName = "(302) Purple"
 
 									End Select
 

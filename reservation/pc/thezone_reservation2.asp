@@ -55,24 +55,24 @@
 			Cu_ImageTitle = "인원<br>(기준2명/최대2명)"
 
 		Case "3"
-			RoomName = "(203-7평) Purple Zone"
+			RoomName = "(301-30평) Sweet Zone"
 
 			Cu_Check = "1"
 
 			NumFor = 2
-			AddFor = 2
+			AddFor = 0
 
-			Cu_ImageTitle = "인원<br>(기준2명/최대4명)"
+			Cu_ImageTitle = "인원<br>(기준8명/최대12명)"
 
 		Case "4"
-			RoomName = "(301-30평) Sweet Zone"
+			RoomName = "(302-7평) Purple Zone"
 
 			Cu_Check = "3"
 
 			NumFor = 8
 			AddFor = 4
 
-			Cu_ImageTitle = "인원<br>(기준8명/최대12명)"
+			Cu_ImageTitle = "인원<br>(기준2명/최대2명)"
 
 	End Select
 
