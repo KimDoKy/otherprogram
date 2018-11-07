@@ -252,6 +252,39 @@
 						End If
 				End Select
 
+			'성수기 중 특정일은 주말 요금으로 지정'
+			'12/24, 12/31, 2/2~2/5'
+            ElseIf ("2018-12-24" = CheckDate) Or ("2018-12-31" = CheckDate) Or  ("2019-02-02" = CheckDate) Or ("2019-02-03" = CheckDate) Or ("2019-02-04" = CheckDate) Or ("2019-02-05" = CheckDate) Then
+
+				If bgColor = "02" Then
+					bgImage03_2 = "#c4d597" 
+					Price03_02 = Price03_02 & ""
+				Else
+					bgImage03_2 = "#c4d597" 
+					Price03_02 = Price03_02 & ""
+				End If
+
+				Select Case Cu_Check
+					Case "1"
+						If bgColor = "02" Then
+							SelectPrice = 140000
+						Else
+							SelectPrice = 140000
+						End If
+					Case "2"
+						If bgColor = "02" Then
+							SelectPrice = 300000
+						Else
+							SelectPrice = 300000
+						End If
+					Case "3"
+						If bgColor = "02" Then
+							SelectPrice = 400000
+						Else
+							SelectPrice = 400000
+						End If
+				End Select
+
 			'겨울 성수기 (12월)
 			ElseIf (Year(Now()) & "-12-01" <= CheckDate) And (Year(Now()) & "-12-31" >= CheckDate) Then
 					
