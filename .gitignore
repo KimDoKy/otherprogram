@@ -1,4 +1,8 @@
 
+# other
+*.bak
+*~
+
 # Created by https://www.gitignore.io/api/django,python,pycharm
 *.json
 ### Django ###
