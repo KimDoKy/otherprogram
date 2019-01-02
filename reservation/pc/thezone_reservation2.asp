@@ -18,18 +18,13 @@
  a:visited {color:#545454;font-size:9pt;text-decoration:none;}
  a:hover {color:#545454;font-size:9pt;text-decoration:underline;}
 
-
-
 </style>
 
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- ImageReady Slices (sub_실시간예약.PSD) -->
 
-
 <%
-
-
 
 	Select Case request("room")
 		Case "1"
@@ -150,17 +145,14 @@
 
 				Case "2"
 
-					
 					Price01_01 = "15만원(주중)"
 					Price01_02 = "15만원(주말)"
 
 					Price03_01 = "20만원(주중)"
 					Price03_02 = "30만원(주말)"
 
-
 				Case "3"
 
-					
 					Price01_01 = "20만원(주중)"
 					Price01_02 = "20만원(주말)"
 
@@ -190,14 +182,14 @@
 
 				PriceCheck = "Y"
 
-
 				If bgColor = "02" Then
-					bgImage02_1 = "#c4d597" 
-					Price02_01 = Price02_01 & ""
+					bgImage03_1 = "#c4d597" 
+					Price03_02 = Price03_02 & ""
 				Else
-					bgImage02_2 = "#c4d597" 
-					Price02_02 = Price02_02 & ""
+					bgImage03_2 = "#c4d597" 
+					Price03_02 = Price03_02 & ""
 				End If
+
 				Select Case Cu_Check
 					Case "1"
 						If bgColor = "02" Then
@@ -219,36 +211,37 @@
 						End If
 				End Select
 
-			'2018년 11월 요청건'
-			'겨울 성수기중 금요일도 주중가격으로 인하'
-            ElseIf ("2018-12-07" = CheckDate) Or ("2018-12-14" = CheckDate) Or ("2018-12-21" = CheckDate) Or ("2018-12-28" = CheckDate) Or ("2019-01-04" = CheckDate) Or ("2019-01-11" = CheckDate) Or ("2019-01-18" = CheckDate) Or ("2019-01-25" = CheckDate) Or ("2019-02-01" = CheckDate) Or ("2019-02-08" = CheckDate) Or ("2019-02-16" = CheckDate) Or ("2019-02-22" = CheckDate) Then
+			'겨울 성수기중 주말'
+            ElseIf ("2019-01-06" = CheckDate) Or ("2019-01-12" = CheckDate) Or ("2019-01-19" = CheckDate) Or ("2019-01-26" = CheckDate) Or ("2019-02-01" = CheckDate) Or ("2019-02-09" = CheckDate) Or ("2019-02-16" = CheckDate) Or ("2019-02-23" = CheckDate) Then
+
+				PriceCheck = "Y"
 
 				If bgColor = "02" Then
 					bgImage03_1 = "#c4d597" 
-					Price03_01 = Price03_01 & ""
+					Price03_02 = Price03_02 & ""
 				Else
-					bgImage03_1 = "#c4d597" 
-					Price03_01 = Price03_01 & ""
+					bgImage03_2 = "#c4d597" 
+					Price03_02 = Price03_02 & ""
 				End If
 
 				Select Case Cu_Check
 					Case "1"
 						If bgColor = "02" Then
-							SelectPrice = 100000
+							SelectPrice = 140000
 						Else
-							SelectPrice = 100000
+							SelectPrice = 140000
 						End If
 					Case "2"
 						If bgColor = "02" Then
-							SelectPrice = 200000
+							SelectPrice = 300000
 						Else
-							SelectPrice = 200000
+							SelectPrice = 300000
 						End If
 					Case "3"
 						If bgColor = "02" Then
-							SelectPrice = 300000
+							SelectPrice = 400000
 						Else
-							SelectPrice = 300000
+							SelectPrice = 400000
 						End If
 				End Select
 
@@ -256,13 +249,10 @@
 			'12/24, 12/31, 2/2~2/5'
             ElseIf ("2018-12-24" = CheckDate) Or ("2018-12-31" = CheckDate) Or  ("2019-02-02" = CheckDate) Or ("2019-02-03" = CheckDate) Or ("2019-02-04" = CheckDate) Or ("2019-02-05" = CheckDate) Then
 
-				If bgColor = "02" Then
-					bgImage03_2 = "#c4d597" 
-					Price03_02 = Price03_02 & ""
-				Else
-					bgImage03_2 = "#c4d597" 
-					Price03_02 = Price03_02 & ""
-				End If
+				PriceCheck = "Y"
+
+				bgImage03_2 = "#c4d597" 
+				Price03_02 = Price03_02 & ""
 
 				Select Case Cu_Check
 					Case "1"
@@ -285,9 +275,11 @@
 						End If
 				End Select
 
-			'겨울 성수기 (12월)
-			ElseIf (Year(Now()) & "-12-01" <= CheckDate) And (Year(Now()) & "-12-31" >= CheckDate) Then
+			'겨울 성수기 (1,2,12월/평일)
+			ElseIf ("2019-01-02" = CheckDate) Or ("2019-01-03" = CheckDate) Or ("2019-01-04" = CheckDate) Or ("2019-01-06" = CheckDate) Or ("2019-01-07" = CheckDate) Or ("2019-01-08" = CheckDate) Or ("2019-01-09" = CheckDate) Or ("2019-01-10" = CheckDate) Or ("2019-01-11" = CheckDate) Or ("2019-01-13" = CheckDate) Or ("2019-01-14" = CheckDate) Or ("2019-01-15" = CheckDate) Or ("2019-01-16" = CheckDate) Or ("2019-01-17" = CheckDate) Or ("2019-01-15" = CheckDate) Or ("2019-01-16" = CheckDate) Or ("2019-01-17" = CheckDate) Or ("2019-01-18" = CheckDate) Or ("2019-01-20" = CheckDate) Or ("2019-01-21" = CheckDate) Or ("2019-01-22" = CheckDate) Or ("2019-01-23" = CheckDate) Or ("2019-01-24" = CheckDate) Or ("2019-01-25" = CheckDate) Or ("2019-01-27" = CheckDate) Or ("2019-01-28" = CheckDate) Or ("2019-01-29" = CheckDate) Or ("2019-01-30" = CheckDate) Or ("2019-01-31" = CheckDate) Or ("2019-02-01" = CheckDate) Or ("2019-02-06" = CheckDate) Or ("2019-02-07" = CheckDate) Or ("2019-02-08" = CheckDate) Or ("2019-02-10" = CheckDate) Or ("2019-02-11" = CheckDate) Or ("2019-02-12" = CheckDate) Or ("2019-02-13" = CheckDate) Or ("2019-02-14" = CheckDate) Or ("2019-02-15" = CheckDate) Or ("2019-02-16" = CheckDate) Or ("2019-02-17" = CheckDate) Or ("2019-02-18" = CheckDate) Or ("2019-02-19" = CheckDate) Or ("2019-02-20" = CheckDate) Or ("2019-02-21" = CheckDate) Or ("2019-02-22" = CheckDate) Or ("2019-02-24" = CheckDate) Or ("2019-02-25" = CheckDate) Or ("2019-02-26" = CheckDate) Or ("2019-02-27" = CheckDate) Or ("2019-02-28" = CheckDate) Then
 					
+				PriceCheck = "Y"
+
 				If bgColor = "02" Then
 				    bgImage03_1 = "#c4d597" '요금 적용 영역 표시 색칠하기
 				    Price03_01 = Price03_01 & ""
@@ -301,38 +293,7 @@
 					    If bgColor = "02" Then
 							SelectPrice = 100000
 						Else
-						    SelectPrice = 140000
-						End If
-					Case "2"
-					    If bgColor = "02" Then
-							SelectPrice = 200000
-						Else
-						    SelectPrice = 300000
-						End If
-					Case "3"
-					    If bgColor = "02" Then
-							SelectPrice = 300000
-						Else
-						    SelectPrice = 400000
-						End If
-				End Select
-			
-			'겨울 성수기 (1,2월)
-			ElseIf (Year(Now())+1 & "-01-01" <= CheckDate) And (Year(Now())+1 & "-02-28" >= CheckDate) Then
-			    If bgColor = "02" Then
-				    bgImage03_1 = "#c4d597" '요금 적용 영역 표시 색칠하기
-				    Price03_01 = Price03_01 & ""
-				Else
-					bgImage03_2 = "#c4d597" 
-					Price03_02 = Price03_02 & ""
-                End If
-
-				Select Case Cu_Check '해당 방 가격 자동 입력
-					Case "1"
-					    If bgColor = "02" Then
-							SelectPrice = 100000
-						Else
-						    SelectPrice = 140000
+						    SelectPrice = 100000
 						End If
 					Case "2"
 					    If bgColor = "02" Then
@@ -941,24 +902,15 @@
 
 
             <td bgcolor="<%=bgImage03_2%>" style="border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4" ><div align="center"><%=Price03_02%></div></td>
-
-
           </tr>
 
 
-
-
-
-
-
-         
         </table></td>
       </tr>
       <tr>
         <td height="19">&nbsp;</td>
       </tr>
 		
-	  
 	  <%If txtName = "" Then%>
 		  <tr>
 			<Td align="center">

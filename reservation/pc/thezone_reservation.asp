@@ -134,7 +134,7 @@
 		<td align="center">
 			<table   border="0" cellpadding="0" cellspacing="0" >
 				<tr>
-					<td ><img src="images/sub_cut4_02.gif" width="108" height="32" alt=""></td>
+					<td><img src="images/sub_cut4_02.gif" width="108" height="32" alt=""></td>
 					<td><img src="images/sub_cut4_03.gif" width="108" height="32" alt=""></td>
 					<td><img src="images/sub_cut4_04.gif" width="108" height="32" alt=""></td>
 					<td><img src="images/sub_cut4_05.gif" width="108" height="32" alt=""></td>
@@ -150,10 +150,7 @@
 						<TD style="border-left:1px dashed #cacaca;border-bottom:1px dashed #cacaca;height:108px">&nbsp;</TD>
 				<%
 					 Next
-					 For i = 1 To endDay Step 1
-
-							
-						
+					 For i = 1 To endDay Step 1	
 				%>
 							<%If (i+ww) Mod 7 = 0 Then%>
 								
@@ -189,7 +186,8 @@
 							
 									<div class="cal_redtext">
 										<%
-											If (i+ww) Mod 7 = 6 Then
+										    '금요일도 평일 적용 // 나머지 7은 금요일
+											If (i+ww) Mod 7 = 7 Then
 
 												bgImage = "01"
 										
@@ -200,13 +198,8 @@
 											End If
 										%>
 
-
-
-
-									
 										<FONT COLOR="black"><%=i%></FONT>
 
-										
 						     <%End If%>
 							 </div><br>
 

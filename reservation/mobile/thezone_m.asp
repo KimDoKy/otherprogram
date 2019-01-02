@@ -7,8 +7,15 @@
  a:link {color:#545454;font-size:9pt;text-decoration:none;}
  a:visited {color:#545454;font-size:9pt;text-decoration:none;}
  a:hover {color:#545454;font-size:9pt;text-decoration:underline;}
-
-
+ 
+ #date_btn{
+    width: 310px;
+    margin: 0 auto;
+	}
+ #sub_cut3{
+	width: 200px;
+	margin: 0 0 0 10px;
+	}
 
  .cal_redtext
 {
@@ -69,9 +76,9 @@
 
  todayCheck = yy & "-" & mm
 %>
-<table width="100%" height="38" border="0" cellpadding="0" cellspacing="0">
+<table id="date_btn" width="100%" height="38" border="0" cellpadding="0" cellspacing="0">
 	<tr>
-			<td><a href="thezone_m.asp?mov=<%=prvDay%>"><img src="images/sub_cut2_01.gif" width="5" height="37" alt="" border="0"></a></td>
+		<td><a href="thezone_m.asp?mov=<%=prvDay%>"><img src="images/sub_cut2_01.gif" width="5" height="37" alt="" border="0"></a></td>
 		<td><a href="thezone_m.asp?mov=<%=prvDay%>"><img src="images/sub_cut2_02.gif" width="100" height="37" alt="" border="0"></a></td>
 		<td width="100" height="37" alt="" align="center"><b><%=yy%>³â <%=mm%>¿ù</b></td>
 		<td>
@@ -82,7 +89,7 @@
 
 
 
-<table width="100%" height="38" border="0" cellpadding="0" cellspacing="0">
+<table id="sub_cut3" width="100%" height="38" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 
 		<td>
@@ -102,7 +109,7 @@
 		<td align="center">
 			<table   border="0" cellpadding="0" cellspacing="0" >
 				<tr>
-					<td ><img src="images/sub_cut4_02.gif" width="100%" height="25" alt=""></td>
+					<td><img src="images/sub_cut4_02.gif" width="100%" height="25" alt=""></td>
 					<td><img src="images/sub_cut4_03.gif" width="100%" height="25" alt=""></td>
 					<td><img src="images/sub_cut4_04.gif" width="100%" height="25" alt=""></td>
 					<td><img src="images/sub_cut4_05.gif" width="100%" height="25" alt=""></td>
@@ -157,7 +164,7 @@
 							
 									<div class="cal_redtext">
 										<%
-											If (i+ww) Mod 7 = 6 Then
+											If (i+ww) Mod 7 = 7 Then
 
 												bgImage = "01"
 										
