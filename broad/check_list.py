@@ -27,7 +27,7 @@ def find_num(num, url):
             # Click()
             a_link = driver.find_element_by_xpath('//*[@id="program-front-end-board-area"]/div[1]/table/tbody/tr[3]/td[2]/a').get_attribute('href')[-4:]
             print(a_link)
-            for i in range(5780):
+            for i in range(5680):
                 print(i)
                 driver.get(url_2+a_link)
                 driver.set_window_size(100, 100)
