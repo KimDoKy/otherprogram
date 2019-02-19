@@ -138,7 +138,7 @@
 				Case "1"
 
 					Price01_01 = "7만원(주중)"
-					Price01_02 = "7만원(주말)"
+					Price01_02 = "10만원(주말)"
 
 					Price03_01 = "10만원(주중)"
 					Price03_02 = "14만원(주말)"
@@ -146,7 +146,7 @@
 				Case "2"
 
 					Price01_01 = "15만원(주중)"
-					Price01_02 = "15만원(주말)"
+					Price01_02 = "20만원(주말)"
 
 					Price03_01 = "20만원(주중)"
 					Price03_02 = "30만원(주말)"
@@ -154,7 +154,7 @@
 				Case "3"
 
 					Price01_01 = "20만원(주중)"
-					Price01_02 = "20만원(주말)"
+					Price01_02 = "30만원(주말)"
 
 					Price03_01 = "30만원(주중)"
 					Price03_02 = "40만원(주말)"
@@ -324,19 +324,19 @@
 						If bgColor = "02" Then
 							SelectPrice = 70000
 						Else
-							SelectPrice = 70000
+							SelectPrice = 100000
 						End If
 					Case "2"
 						If bgColor = "02" Then
 							SelectPrice = 150000
 						Else
-							SelectPrice = 150000
+							SelectPrice = 200000
 						End If
 					Case "3"
 						If bgColor = "02" Then
 							SelectPrice = 200000
 						Else
-							SelectPrice = 200000
+							SelectPrice = 300000
 						End If
 				End Select
 
