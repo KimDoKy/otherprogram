@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 from tkinter import messagebox
+import random
 
 # 조건 충족시 PC에 알림창을 띄웁니다.
 def Click():
@@ -17,6 +18,8 @@ def find_num(num, url):
     driver = webdriver.Chrome('chromedriver.exe')
     driver.get(url)
     board_num = driver.find_elements_by_tag_name('tr') 
+    count = random.randint(5070, 5370)
+    print(count)
     for t in board_num:
         if t.text[1]:
             num_text = t.text[:2]
@@ -27,7 +30,7 @@ def find_num(num, url):
             # Click()
             a_link = driver.find_element_by_xpath('//*[@id="program-front-end-board-area"]/div[1]/table/tbody/tr[3]/td[2]/a').get_attribute('href')[-4:]
             print(a_link)
-            for i in range(5680):
+            for i in range(count):
                 print(i)
                 driver.get(url_2+a_link)
                 driver.set_window_size(100, 100)
