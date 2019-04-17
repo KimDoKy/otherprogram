@@ -59,6 +59,14 @@ sbsCheck의 mbc 버젼.
 search_rank_list.xlsx -> result_search_rank_list.xlsx  
 select_rank_list.xlsx -> result_select_rank_list.xlsx
 
+### update
+
+search_rank_2.py  
+
+검색 키워드와 랜딩 키워드를 입력하면  
+검색 키워드로 검색시 연관 키워드 리스트에 랜딩키워드가 있다면  
+순위를 기록하고, 스크린 샷을 검색키워드명으로 파일명을 지정하여 저장합니다.
+
 --- 
 
 ## call_profile
