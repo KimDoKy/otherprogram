@@ -1,4 +1,4 @@
-from urllib.request import urlopen
+﻿from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from urllib import parse
 import openpyxl
@@ -9,14 +9,16 @@ ws = wd.active
 def bs(s_key, r_key):
     url = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="
     q = parse.quote(r_key)
+    print(url + q)
     html = urlopen(url + q)
     bsObj = BeautifulSoup(html, "html.parser")
     dd = bsObj.find('dd','lst_relate')
     if bool(dd):
         li = dd.find_all('li')
+        print(li)
         for n in range(len(li)):
             if li[n].text.find(str(s_key)) == 1:
-                return n+1
+                return str(n+1)
                 break
     else:
         return "연관검색어가 없습니다."
@@ -31,6 +33,7 @@ def relate_search():
             row_index = r[0].row
             search_key = r[1].value
             relate_key = r[2].value
+            print(relate_key)
             ranking = bs(search_key,relate_key)
             if ranking == None:
                 ranking = "x"
@@ -38,7 +41,7 @@ def relate_search():
             ws.cell(row=row_index, column=2).value = search_key
             ws.cell(row=row_index, column=3).value = relate_key
             ws.cell(row=row_index, column=4).value = ranking
-            wd.save("result_select_rank_list.xlsx")
+    wd.save("result_select_rank_list.xlsx")
     wd.close()
  
 relate_search()
