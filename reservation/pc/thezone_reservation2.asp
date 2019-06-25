@@ -11,7 +11,7 @@
 </style>
 
 <style>
-	
+
 
  td {font-size: 12px; color:000000; text-decoration: none;}
  a:link {color:#545454;font-size:9pt;text-decoration:none;}
@@ -71,7 +71,7 @@
 
 	End Select
 
-	
+
 
 
 	If request("daycheck") < 10 Then
@@ -129,7 +129,7 @@
       </tr>
 		<%
 
-		
+
 
 			NextYear = Year(Now()) + 1
 
@@ -168,25 +168,25 @@
 
 			ChecktoDay = Date()
 
-			
+
 			If Trim(ChecktoDay) > Trim(CheckDate) Then
 
 				response.write "<script>alert('지난 날짜는 예약을 하실수 없습니다.');history.go(-1)</script>"
 
 			End If
 
-			
-		
-			'7/1 ~ 8/31 여름 성수기'
-			If (Year(Now()) & "-07-01" <= CheckDate) And (Year(Now()) & "-08-31" >= CheckDate) Then
+
+
+			'12 성수기'
+			If (Year(Now()) & "-12-01" <= CheckDate) And (Year(Now()) & "-12-31" >= CheckDate) Then
 
 				PriceCheck = "Y"
 
 				If bgColor = "02" Then
-					bgImage03_1 = "#c4d597" 
+					bgImage03_1 = "#c4d597"
 					Price03_02 = Price03_02 & ""
 				Else
-					bgImage03_2 = "#c4d597" 
+					bgImage03_2 = "#c4d597"
 					Price03_02 = Price03_02 & ""
 				End If
 
@@ -211,35 +211,69 @@
 						End If
 				End Select
 
-			'겨울 성수기중 주말'
-            ElseIf ("2019-01-06" = CheckDate) Or ("2019-01-12" = CheckDate) Or ("2019-01-19" = CheckDate) Or ("2019-01-26" = CheckDate) Or ("2019-02-01" = CheckDate) Or ("2019-02-09" = CheckDate) Or ("2019-02-16" = CheckDate) Or ("2019-02-23" = CheckDate) Then
+			'1,2 성수기'
+			ElseIf (Year(Now()) & "-01-01" <= CheckDate) And (Year(Now()) & "-02-28" >= CheckDate) Then
 
 				PriceCheck = "Y"
 
 				If bgColor = "02" Then
-					bgImage03_1 = "#c4d597" 
+					bgImage03_1 = "#c4d597"
 					Price03_02 = Price03_02 & ""
 				Else
-					bgImage03_2 = "#c4d597" 
+					bgImage03_2 = "#c4d597"
 					Price03_02 = Price03_02 & ""
 				End If
 
 				Select Case Cu_Check
 					Case "1"
 						If bgColor = "02" Then
-							SelectPrice = 140000
+							SelectPrice = 70000
 						Else
-							SelectPrice = 140000
+							SelectPrice = 70000
 						End If
 					Case "2"
 						If bgColor = "02" Then
-							SelectPrice = 300000
+							SelectPrice = 150000
 						Else
-							SelectPrice = 300000
+							SelectPrice = 150000
 						End If
 					Case "3"
 						If bgColor = "02" Then
+							SelectPrice = 300000
+						Else
 							SelectPrice = 400000
+						End If
+				End Select
+
+			'1,2 성수기'
+			ElseIf (Year(Now())+1 & "-01-01" <= CheckDate) And (Year(Now())+1 & "-02-28" >= CheckDate) Then
+
+				PriceCheck = "Y"
+
+				If bgColor = "02" Then
+					bgImage03_1 = "#c4d597"
+					Price03_02 = Price03_02 & ""
+				Else
+					bgImage03_2 = "#c4d597"
+					Price03_02 = Price03_02 & ""
+				End If
+
+				Select Case Cu_Check
+					Case "1"
+						If bgColor = "02" Then
+							SelectPrice = 70000
+						Else
+							SelectPrice = 70000
+						End If
+					Case "2"
+						If bgColor = "02" Then
+							SelectPrice = 150000
+						Else
+							SelectPrice = 150000
+						End If
+					Case "3"
+						If bgColor = "02" Then
+							SelectPrice = 300000
 						Else
 							SelectPrice = 400000
 						End If
@@ -251,7 +285,7 @@
 
 				PriceCheck = "Y"
 
-				bgImage03_2 = "#c4d597" 
+				bgImage03_2 = "#c4d597"
 				Price03_02 = Price03_02 & ""
 
 				Select Case Cu_Check
@@ -275,16 +309,13 @@
 						End If
 				End Select
 
-			'겨울 성수기 (1,2,12월/평일)
-			ElseIf ("2019-01-02" = CheckDate) Or ("2019-01-03" = CheckDate) Or ("2019-01-04" = CheckDate) Or ("2019-01-06" = CheckDate) Or ("2019-01-07" = CheckDate) Or ("2019-01-08" = CheckDate) Or ("2019-01-09" = CheckDate) Or ("2019-01-10" = CheckDate) Or ("2019-01-11" = CheckDate) Or ("2019-01-13" = CheckDate) Or ("2019-01-14" = CheckDate) Or ("2019-01-15" = CheckDate) Or ("2019-01-16" = CheckDate) Or ("2019-01-17" = CheckDate) Or ("2019-01-15" = CheckDate) Or ("2019-01-16" = CheckDate) Or ("2019-01-17" = CheckDate) Or ("2019-01-18" = CheckDate) Or ("2019-01-20" = CheckDate) Or ("2019-01-21" = CheckDate) Or ("2019-01-22" = CheckDate) Or ("2019-01-23" = CheckDate) Or ("2019-01-24" = CheckDate) Or ("2019-01-25" = CheckDate) Or ("2019-01-27" = CheckDate) Or ("2019-01-28" = CheckDate) Or ("2019-01-29" = CheckDate) Or ("2019-01-30" = CheckDate) Or ("2019-01-31" = CheckDate) Or ("2019-02-01" = CheckDate) Or ("2019-02-06" = CheckDate) Or ("2019-02-07" = CheckDate) Or ("2019-02-08" = CheckDate) Or ("2019-02-10" = CheckDate) Or ("2019-02-11" = CheckDate) Or ("2019-02-12" = CheckDate) Or ("2019-02-13" = CheckDate) Or ("2019-02-14" = CheckDate) Or ("2019-02-15" = CheckDate) Or ("2019-02-16" = CheckDate) Or ("2019-02-17" = CheckDate) Or ("2019-02-18" = CheckDate) Or ("2019-02-19" = CheckDate) Or ("2019-02-20" = CheckDate) Or ("2019-02-21" = CheckDate) Or ("2019-02-22" = CheckDate) Or ("2019-02-24" = CheckDate) Or ("2019-02-25" = CheckDate) Or ("2019-02-26" = CheckDate) Or ("2019-02-27" = CheckDate) Or ("2019-02-28" = CheckDate) Then
-					
 				PriceCheck = "Y"
 
 				If bgColor = "02" Then
 				    bgImage03_1 = "#c4d597" '요금 적용 영역 표시 색칠하기
 				    Price03_01 = Price03_01 & ""
 				Else
-					bgImage03_2 = "#c4d597" 
+					bgImage03_2 = "#c4d597"
 					Price03_02 = Price03_02 & ""
                 End If
 
@@ -312,10 +343,10 @@
 			'비성수기'
 			Else
 				If bgColor = "02" Then
-					bgImage01_1 = "#c4d597" 
+					bgImage01_1 = "#c4d597"
 					Price02_01 = Price02_01 & ""
 				Else
-					bgImage01_2 = "#c4d597" 
+					bgImage01_2 = "#c4d597"
 					Price02_02 = Price02_02 & ""
 				End If
 
@@ -424,7 +455,7 @@
 
 
 			Frm.TotalPrice.value = parseFloat(Frm.SelectPriceCheck.value) + parseFloat(RoomPrice) + parseFloat(OptionPrice);
-				
+
 
 		}
 
@@ -442,7 +473,7 @@
 			}
 
 			var PriceCheck = "<%=PriceCheck%>";
-			
+
 
 			if (PriceCheck == "Y")
 			{
@@ -451,17 +482,17 @@
 					RoomPriceCheck = parseFloat(RoomPrice) * 0.05;
 
 					RoomPrice = parseFloat(RoomPrice) - parseFloat(RoomPriceCheck);
-				}	
+				}
 			}
 
 
 
 			var TotalPrice = parseFloat(AddPrice) + parseFloat(RoomPrice);
-	
+
 			Frm.TotalPrice.value = TotalPrice;
 
 
-			var RoomCheckCount = Frm.RoomPrice.length 
+			var RoomCheckCount = Frm.RoomPrice.length
 
 			for(z = 0 ; z < RoomCheckCount ; z ++)
 			{
@@ -507,17 +538,17 @@
 		CheckDate = CleanChars(CheckDate)
 
 		RoomNo = CleanChars(request("room"))
-	  
+
 		Set Cmd = Server.CreateObject("ADODB.Command")
 
 		StrSql = "Select a.PID, RoomNo, RoomType, S_Date, isnull(roomCheck, '') as roomCheck, CuNumber, AddNumber, TotalPrice, txtName, txtHp, txtTell, reDate, CheckTime, OptionCheck01 From TheZoneCheckDate a "
 
 
-		StrSql = StrSql & " left Join TheZoneCheckSubDate b On a.PID = b.MainPID " 
+		StrSql = StrSql & " left Join TheZoneCheckSubDate b On a.PID = b.MainPID "
 
-		
-		StrSql = StrSql & "  Where (DateView = ? Or S_Date = ?)  And RoomNo = ? And RoomType <> 'D'" 
-		
+
+		StrSql = StrSql & "  Where (DateView = ? Or S_Date = ?)  And RoomNo = ? And RoomType <> 'D'"
+
 
 
 
@@ -531,10 +562,10 @@
 			.Parameters.Append .CreateParameter("@S_Date",adVarchar,adparaminput, 300, CheckDate)
 			.Parameters.Append .CreateParameter("@RoomNo",adVarchar,adparaminput, 1,RoomNo)
 			Set RS1 = .Execute
-			
+
 			If Not RS1.Eof Then
 
-				
+
 				txtName = RS1("txtName")
 				txtTell = RS1("txtTell")
 
@@ -553,17 +584,17 @@
 
 				txtTell = Left(RS1("txtTell"), 3) & "-***-" & Right(RS1("txtTell"), 4)
 
-				
+
 
 
 
 
 				Select Case Len(txtName)
 					Case 2
-						
+
 						viewName = Left(RS1("txtName"), 1) & "*"
-						
-						
+
+
 					Case 3
 
 						viewName = Left(RS1("txtName"), 1) & "*" & Right(RS1("txtName"), 1)
@@ -571,11 +602,11 @@
 					Case Else
 
 						viewName = Left(RS1("txtName"), 1) & "*" & Right(RS1("txtName"), 1)
-						
-				
+
+
 				End Select
-				
-				
+
+
 
 			End If
 
@@ -664,7 +695,7 @@
             </tr>
           <tr>
 		<%Else%>
-			
+
 			<tr>
             <td width="124" height="34" align="center" style="border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4"><img src="image/name.png" alt=""></td>
 
@@ -705,18 +736,18 @@
 						<td><span class="style1">---</span></td>
 						<Td>
 
-							<select Name= "OptionCheck01" onchange="optionView()"> 
+							<select Name= "OptionCheck01" onchange="optionView()">
 								<option value=""></option>
-								
+
 								<option value="">실내바베큐장이용요금</option>
 								<option value="">----------------------------------</option>
 
 								<option value="A" <%If OptionCheck01 = "A" Then%> selected<%End If%>>철판구이 및 버너대여</option>
-								
+
 								<option value="B" <%If OptionCheck01 = "B" Then%> selected<%End If%>>철판구이 3만원</option>
 								<option value="C" <%If OptionCheck01 = "C" Then%> selected<%End If%>>버너대여 1만원</option>
-								
-								
+
+
 								<option value="">----------------------------------</option>
 								<option value="">야외바베큐장이용요금</option>
 								<option value="">----------------------------------</option>
@@ -726,17 +757,17 @@
 								<option value="D" <%If OptionCheck01 = "D" Then%> selected<%End If%>>숯불구이 4인당 1만원</option>
 
 							</Select>
-							
+
 						</td>
 
-						
+
 					</tr>
 				</table>
 			</td>
 
 			<td width="124" height="34" align="center" style="border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4"></td>
             <td  style="border-bottom:1px solid #d4d4d4"><span class="style1">---</span>
-				
+
 			</td>
 		  </tr>
 
@@ -745,7 +776,7 @@
 
 		  <tr>
 
-			<td height="35" align="center" style="border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4"><font style="font-size:11px; color:#555; font-weight:bold;"><%=Cu_ImageTitle%></font></td>	
+			<td height="35" align="center" style="border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4"><font style="font-size:11px; color:#555; font-weight:bold;"><%=Cu_ImageTitle%></font></td>
 
 
 				<%If txtName = "" Then%>
@@ -799,12 +830,12 @@
 
 				  <td width="127" style="border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4"><div align="center"><img src="image/sub_reservation4_9.gif" width="51" height="18" alt=""></div></td>
 
-				<td width="317" style="border-bottom:1px solid #d4d4d4"> 
-					
+				<td width="317" style="border-bottom:1px solid #d4d4d4">
+
 					<table border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<TD style="padding-left:23px"><input name="AddPrice" type="text" id="AddPrice" value="" size="15" readonly> </TD>
-							
+
 							<td>
 								  <img src="image/sub_reservation4_10.gif" width="16" height="18" alt="">
 							</td>
@@ -813,10 +844,10 @@
 					</table>
 
 
-				  
-				  
-				   
-				   
+
+
+
+
 				 </td>
 			<%Else%>
 
@@ -860,7 +891,7 @@
 
 
 
-		  
+
           <tr>
             <td height="34" style="border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4" align="center"><img src="image/sub_reservation4_4.gif" width="60" height="17" alt=""></td>
             <td bgcolor="<%=bgImage01_1%>" style="border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4"><div align="center"><%=Price01_01%></div></td>
@@ -869,7 +900,7 @@
             <td rowspan="3" style="border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4"><div align="center"><img src="image/sub_reservation4_11.gif" width="51" height="18" alt=""></div></td>
 
             <td rowspan="3" style="border-bottom:1px solid #d4d4d4">
-				
+
 				<table border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<%If TotalPrice = "" Then%>
@@ -877,7 +908,7 @@
 							<%Else%>
 								<TD style="padding-left:23px">  <input name="TotalPrice" type="text" id="TotalPrice" value="<%=TotalPrice%>" size="15" readonly></TD>
 							<%End If%>
-							
+
 							<td>
 								  <img src="image/sub_reservation4_10.gif" width="16" height="18" alt="">
 							</td>
@@ -886,10 +917,10 @@
 					</table>
 
 
-				
 
 
-            
+
+
               </td>
           </tr>
 
@@ -910,7 +941,7 @@
       <tr>
         <td height="19">&nbsp;</td>
       </tr>
-		
+
 	  <%If txtName = "" Then%>
 		  <tr>
 			<Td align="center">
@@ -939,7 +970,7 @@
 		<td>* 추가인원 초과시 연락바랍니다.</td>
       </tr>
 
-		 
+
 
 		<tr>
         <td height="10">&nbsp;</td>
@@ -947,7 +978,7 @@
 
 
 
-      
+
 
 	  <tr>
         <td><img src="images/aa.jpg"  alt=""></td>
@@ -956,7 +987,7 @@
       <tr>
         <td><div align="center"><img src="http://thezone.godohosting.com/images/reservation/sub_reservation6.gif" width="771" height="560" alt=""></div></td>
       </tr>
-      
+
     </table></td>
     <td>&nbsp;</td>
   </tr>
