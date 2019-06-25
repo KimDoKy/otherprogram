@@ -1,4 +1,4 @@
-from selenium import webdriver
+﻿from selenium import webdriver
 import time
 from tkinter import messagebox
 import random
@@ -15,14 +15,17 @@ url_2 = 'https://programs.sbs.co.kr/cnbc/cnbctalktalk/board/56556/?cmd=view&page
 # 크롬을 실행시켜 원하는 조건을 판단합니다.
 def find_num(num, url):
     global url_2
-    driver = webdriver.Chrome('chromedriver.exe')
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
+    options.add_argument('disable-gpu')
+    driver = webdriver.Chrome('chromedriver.exe', chrome_options=options)
     driver.get(url)
     board_num = driver.find_elements_by_tag_name('tr') 
-    count = random.randint(5070, 5370)
+    count = random.randint(3020, 3143)
     print(count)
     for t in board_num:
         if t.text[1]:
-            num_text = t.text[:2]
+            num_text = t.text[:3]
         else:
             num_text = t.text[0]
         if num_text.find(num) == 0:
