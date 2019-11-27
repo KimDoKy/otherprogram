@@ -47,12 +47,12 @@
 
 
 		Case "2"
-			RoomName = "(202-7평) Yellow Zone"
+			RoomName = "(202-17평) Yellow Zone"
 
-			Cu_Check = "1"
+			Cu_Check = "2"
 
-			NumFor = 2
-			AddFor = 0
+			NumFor = 4
+			AddFor = 3
 
 			Cu_ImageTitle = "인원<br>(기준2명/최대2명)"
 
@@ -176,15 +176,15 @@
 				Select Case Cu_Check
 					Case "1"
 						If bgColor = "02" Then
-							SelectPrice = 70000
+							SelectPrice = 100000
 						Else
-							SelectPrice = 70000
+							SelectPrice = 140000
 						End If
 					Case "2"
 						If bgColor = "02" Then
-							SelectPrice = 150000
+							SelectPrice = 200000
 						Else
-							SelectPrice = 150000
+							SelectPrice = 300000
 						End If
 					Case "3"
 						If bgColor = "02" Then
@@ -245,15 +245,15 @@
 				Select Case Cu_Check
 					Case "1"
 						If bgColor = "02" Then
-							SelectPrice = 70000
+							SelectPrice = 100000
 						Else
-							SelectPrice = 70000
+							SelectPrice = 140000
 						End If
 					Case "2"
 						If bgColor = "02" Then
-							SelectPrice = 150000
+							SelectPrice = 200000
 						Else
-							SelectPrice = 150000
+							SelectPrice = 390000
 						End If
 					Case "3"
 						If bgColor = "02" Then
