@@ -253,7 +253,7 @@
 						If bgColor = "02" Then
 							SelectPrice = 200000
 						Else
-							SelectPrice = 390000
+							SelectPrice = 300000
 						End If
 					Case "3"
 						If bgColor = "02" Then
