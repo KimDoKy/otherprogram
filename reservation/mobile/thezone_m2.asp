@@ -194,77 +194,39 @@
 						End If
 				End Select
 
+        '1,2월 겨울 성수기'
+  			ElseIf (Year(Now()) & "-01-01" <= CheckDate) And (Year(Now()) & "-02-28" >= CheckDate) Then
 
-			'1,2 여름 성수기'
-			ElseIf (Year(Now()) & "-01-01" <= CheckDate) And (Year(Now()) & "-02-28" >= CheckDate) Then
+  				PriceCheck = "Y"
 
-				PriceCheck = "Y"
+  				If bgColor = "02" Then
+  					bgImage03_1 = "#c4d597"
+  					Price03_02 = Price03_02 & ""
+  				Else
+  					bgImage03_2 = "#c4d597"
+  					Price03_02 = Price03_02 & ""
+  				End If
 
-				If bgColor = "02" Then
-					bgImage03_1 = "#c4d597"
-					Price03_02 = Price03_02 & ""
-				Else
-					bgImage03_2 = "#c4d597"
-					Price03_02 = Price03_02 & ""
-				End If
-
-				Select Case Cu_Check
-					Case "1"
-						If bgColor = "02" Then
-							SelectPrice = 70000
-						Else
-							SelectPrice = 70000
-						End If
-					Case "2"
-						If bgColor = "02" Then
-							SelectPrice = 150000
-						Else
-							SelectPrice = 150000
-						End If
-					Case "3"
-						If bgColor = "02" Then
-							SelectPrice = 300000
-						Else
-							SelectPrice = 400000
-						End If
-				End Select
-
-			'다음 해 1,2 성수기'
-			ElseIf (Year(Now())+1 & "-01-01" <= CheckDate) And (Year(Now())+1 & "-02-28" >= CheckDate) Then
-
-				PriceCheck = "Y"
-
-				If bgColor = "02" Then
-					bgImage03_1 = "#c4d597"
-					Price03_02 = Price03_02 & ""
-				Else
-					bgImage03_2 = "#c4d597"
-					Price03_02 = Price03_02 & ""
-				End If
-
-				Select Case Cu_Check
-					Case "1"
-						If bgColor = "02" Then
-							SelectPrice = 100000
-						Else
-							SelectPrice = 140000
-						End If
-					Case "2"
-						If bgColor = "02" Then
-							SelectPrice = 200000
-						Else
-							SelectPrice = 300000
-						End If
-					Case "3"
-						If bgColor = "02" Then
-							SelectPrice = 300000
-						Else
-							SelectPrice = 400000
-						End If
-				End Select
-
-
-
+  				Select Case Cu_Check
+  					Case "1"
+  						If bgColor = "02" Then
+  							SelectPrice = 70000
+  						Else
+  							SelectPrice = 70000
+  						End If
+  					Case "2"
+  						If bgColor = "02" Then
+  							SelectPrice = 200000
+  						Else
+  							SelectPrice = 300000
+  						End If
+  					Case "3"
+  						If bgColor = "02" Then
+  							SelectPrice = 300000
+  						Else
+  							SelectPrice = 400000
+  						End If
+  				End Select
 
 			'겨울 성수기중 주말'
             ElseIf ("2019-01-06" = CheckDate) Or ("2019-01-12" = CheckDate) Or ("2019-01-19" = CheckDate) Or ("2019-01-26" = CheckDate) Or ("2019-02-01" = CheckDate) Or ("2019-02-09" = CheckDate) Or ("2019-02-16" = CheckDate) Or ("2019-02-23" = CheckDate) Then

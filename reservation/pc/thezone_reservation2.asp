@@ -177,7 +177,7 @@
 
 
 
-			'12 성수기'
+			'12월 성수기'
 			If (Year(Now()) & "-12-01" <= CheckDate) And (Year(Now()) & "-12-31" >= CheckDate) Then
 
 				PriceCheck = "Y"
@@ -211,7 +211,7 @@
 						End If
 				End Select
 
-			'1,2 성수기'
+			'1,2월 겨울 성수기'
 			ElseIf (Year(Now()) & "-01-01" <= CheckDate) And (Year(Now()) & "-02-28" >= CheckDate) Then
 
 				PriceCheck = "Y"
@@ -233,40 +233,6 @@
 						End If
 					Case "2"
 						If bgColor = "02" Then
-							SelectPrice = 150000
-						Else
-							SelectPrice = 150000
-						End If
-					Case "3"
-						If bgColor = "02" Then
-							SelectPrice = 300000
-						Else
-							SelectPrice = 400000
-						End If
-				End Select
-
-			'1,2 성수기'
-			ElseIf (Year(Now())+1 & "-01-01" <= CheckDate) And (Year(Now())+1 & "-02-28" >= CheckDate) Then
-
-				PriceCheck = "Y"
-
-				If bgColor = "02" Then
-					bgImage03_1 = "#c4d597"
-					Price03_02 = Price03_02 & ""
-				Else
-					bgImage03_2 = "#c4d597"
-					Price03_02 = Price03_02 & ""
-				End If
-
-				Select Case Cu_Check
-					Case "1"
-						If bgColor = "02" Then
-							SelectPrice = 100000
-						Else
-							SelectPrice = 140000
-						End If
-					Case "2"
-						If bgColor = "02" Then
 							SelectPrice = 200000
 						Else
 							SelectPrice = 300000
@@ -278,6 +244,7 @@
 							SelectPrice = 400000
 						End If
 				End Select
+
 
 			'성수기 중 특정일은 주말 요금으로 지정'
 			'12/24, 12/31, 2/2~2/5'
